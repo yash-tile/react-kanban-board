@@ -1,0 +1,20 @@
+/* universal/generic styles */
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+
+.container{
+	margin: 1rem 5rem;
+}
+
+/* KanbanBoard */
+.kanbanLane{
+	width: 20rem;
+	height: 30rem;
+	padding: 1rem;
+	background-color: #F8EDE3;
+	border-radius: 10px;
+	
+}
