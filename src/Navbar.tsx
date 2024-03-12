@@ -1,39 +1,11 @@
-import { useState } from "react";
-import { MdAddCard } from "react-icons/md";
+import { ReactNode } from "react";
 
-function TaskInputGroup() {
-  let [taskTitle, setTaskTitle] = useState("");
-
-  const handleAddClick = () => {
-    if (taskTitle.trim() !== "") {
-      addTask(taskTitle);
-      setTaskTitle("");
-    }
-  };
-
-  return (
-    <div className="input-group container mt-2">
-      <input
-        type="text"
-        autoFocus
-        placeholder="Enter Task..."
-        className="input-group-item"
-        value={taskTitle}
-        onChange={(e) => setTaskTitle(e.target.value)}
-      />
-      <button
-        type="button"
-        className="input-group-item"
-        onClick={handleAddClick}
-      >
-        <MdAddCard />
-      </button>
-    </div>
-  );
+interface NavbarProps {
+  children: ReactNode;
 }
 
-function Navbar() {
-  return <TaskInputGroup />;
+function Navbar({ children }: NavbarProps) {
+  return <div className="container">{children}</div>;
 }
 
 export default Navbar;
