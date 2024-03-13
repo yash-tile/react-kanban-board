@@ -6,12 +6,13 @@ interface TaskInputGroupProps {
 }
 
 function TaskInputGroup({ setTaskTitle }: TaskInputGroupProps) {
-  let [inputTask, setInputTask] = useState("");
+  const [inputTask, setInputTask] = useState("");
 
   const handleAddClick = () => {
-    inputTask = inputTask.trim();
-    if (inputTask !== "") {
-      setTaskTitle(inputTask);
+    const trimmedInputTask = inputTask.trim();
+    if (trimmedInputTask !== "") {
+      console.log(trimmedInputTask);
+      setTaskTitle(trimmedInputTask);
       setInputTask("");
     }
   };

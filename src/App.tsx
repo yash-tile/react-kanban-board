@@ -2,32 +2,35 @@ import "./styles.css";
 import Navbar from "./Navbar";
 import KanbanBoard from "./KanbanBoard";
 import TaskInputGroup from "./TaskInputGroup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-interface Task {
+export interface TaskInterface {
   taskId: number;
   taskTitle: string;
   taskStatus: "todo" | "inprogress" | "completed";
 }
 
 function App() {
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState<TaskInterface[]>([]);
   const [taskTitle, setTaskTitle] = useState("");
 
-  if (taskTitle) {
-    const newTask = {
-      taskId: Date.now(),
-      taskTitle: taskTitle,
-      taskStatus: "",
-    };
-    // setTaskList([...taskList, newTask]);
-  }
+  useEffect(() => {
+    if (taskTitle) {
+      const newTask: TaskInterface = {
+        taskId: Date.now(),
+        taskTitle: taskTitle,
+        taskStatus: "todo",
+      };
+      setTaskList([...taskList, newTask]);
+    }
+  }, [taskTitle]);
+
   return (
     <>
       <Navbar>
         <TaskInputGroup setTaskTitle={setTaskTitle} />
       </Navbar>
-      <KanbanBoard />
+      <KanbanBoard taskList={taskList} />
     </>
   );
 }
