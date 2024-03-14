@@ -13,8 +13,18 @@
 .kanbanLane{
 	width: 20rem;
 	height: 30rem;
-	padding: 1rem;
-	background-color: #F8EDE3;
+	padding: 1rem 1.5rem;
+	background-color: #EEE2DE;
 	border-radius: 10px;
 	
+}
+
+/* TaskCard */
+.taskCard{
+	border-radius: 0.5rem;
+	color: #EFECEC;
+	background-color: #393E46;
+	padding: 0.5rem 1rem;
+	margin-top: 1rem;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }

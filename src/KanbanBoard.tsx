@@ -1,4 +1,5 @@
 import { TaskInterface } from "./App";
+import TaskCard from "./TaskCard";
 
 interface KanbanBoardProps {
   taskList: TaskInterface[];
@@ -13,7 +14,11 @@ function KanbanLane({ laneTitle, laneItems }: KanbanLaneProps) {
   return (
     <div className="kanbanLane">
       <h3 className="kanbanLaneTitle">{laneTitle}</h3>
-      <div className="kanbanLaneContent"></div>
+      <div className="kanbanLaneContent">
+        {laneItems.map((task) => (
+          <TaskCard key={task.taskId} task={task} />
+        ))}
+      </div>
     </div>
   );
 }
